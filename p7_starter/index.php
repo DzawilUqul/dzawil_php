@@ -25,7 +25,7 @@
 
         <?php 
             require "db_conn.php";
-            $query = 'select * from barang where 1';
+            $query = 'SELECT * FROM barang WHERE 1';
             $stmt = $conn -> prepare($query);
             $stmt->execute();
 
@@ -43,7 +43,7 @@
             <td> <img src="files/no-image.jpg" class="img-fluid rounded" style="max-width: 100px;" alt="nama barang"> </td>
             <td>
                 <form action="aksi_barang.php" method="post" onsubmit="return confirm('Apakah yakin akan menghapus data?')">
-                    <a href="form_edit.php?id= <?= $row['id']?> " class="btn btn-warning btn-sm">Edt</a> ||
+                    <a href="form_edit.php?id=<?= $row['id']?> " class="btn btn-warning btn-sm">Edt</a> ||
                     
                     <input type="hidden" name="del" value="<?= $row['id'] ?>">
                     <input type="submit" name="aksi" value="Hps" class="btn btn-danger btn-sm">

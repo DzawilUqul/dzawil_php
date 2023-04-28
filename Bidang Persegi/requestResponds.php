@@ -34,7 +34,7 @@ if(isset($_GET['nama']))
                         $luas = $panjang * $lebar;
                     }
                 }
-                include "bidang_persegi.php";
+                require "bidang_persegi.php";
             ?>
         </form> 
     </div>
@@ -47,7 +47,9 @@ if(isset($_GET['nama']))
 
         $query = $_GET;
         $url = explode("?", $_SERVER['REQUEST_URI'])[0];
-        foreach ($bidang as $bid) {
+        
+        foreach ($bidang as $bid) 
+        {
             $query['bidang'] = $bid;
             $url_query = $url."?".http_build_query($query);
             echo'<li><a href="'.$url_query.'">'.ucfirst($bid).'</li>';

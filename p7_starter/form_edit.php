@@ -16,7 +16,9 @@
         require "db_conn.php";
         $query = 'SELECT * FROM barang WHERE id = ?';
         $stmt = $conn -> prepare($query);
-        $stmt -> execute(array($_GET['id']));
+        $params = array($_GET['id']);
+
+        $stmt -> execute($params);
 
         $data = $stmt ->fetch();
 
@@ -27,22 +29,30 @@
         <input type="hidden" name="id" id="id" value="<?= $data['id'] ?>">
         <div class="mb-3 row">
             <label for="nama" class="col-md-2">Nama Barang</label>
-            <div class="col-md-10"><input type="text" name="nama" id="nama" value="<?= $data['nama'] ?>" class="form-control"></div>
+            <div class="col-md-10">
+                <input type="text" name="nama" id="nama" value="<?= $data['nama'] ?>" class="form-control">
+            </div>
         </div>
 
         <div class="mb-3 row">
             <label for="harga" class="col-md-2">Harga</label>
-            <div class="col-md-10"><input type="text" name="harga" id="harga" value="<?= $data['harga'] ?>" class="form-control"></div>
+            <div class="col-md-10">
+                <input type="text" name="harga" id="harga" value="<?= $data['harga'] ?>" class="form-control">
+            </div>
         </div>
 
         <div class="mb-3 row">
             <label for="jml" class="col-md-2">Jml. Stock</label>
-            <div class="col-md-10"><input type="text" name="jml" id="jml" value="<?= $data['jml'] ?>" class="form-control"></div>
+            <div class="col-md-10">
+                <input type="text" name="jml" id="jml" value="<?= $data['jml'] ?>" class="form-control">
+            </div>
         </div>
 
         <div class="mb-3 row">
             <label for="keterangan" class="col-md-2">Keterangan</label>
-            <div class="col-md-10"> <textarea name="keterangan" id="keterangan" class="form-control" cols="30" rows="5" <?= $data['keterangan'] ?>></textarea> </div>
+            <div class="col-md-10"> 
+                <textarea name="keterangan" id="keterangan" class="form-control" cols="30" rows="5"><?= $data['keterangan'] ?></textarea>
+            </div>
         </div>
 
         <div class="row mb-3 ">

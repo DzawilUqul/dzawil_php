@@ -26,36 +26,42 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- <form action="latihan.php" method="post">
-        <label>username : </label> <br>
+    <form action="latihan.php" method="post">
+        <label> username : </label> <br>
         <input type="text" name="username"> <br>
 
-        <label>Password : </label> <br>
+        <label> Password : </label> <br>
         <input type="password" name="password"> <br>
-        <input type="submit" value="login">
-    </form> -->
+        <input type="submit" name="login" value="login">
+    </form>
 
-    <form action="latihan.php" method="post">
+    <!-- <form action="latihan.php" method="post">
         <label>quantity : </label> <br>
         <input type="text" name="quantity"> <br>
         <input type="submit" name="" value="total">
         
-    </form>
+    </form> -->
 </body>
 </html>
 
 <?php
-    // echo $_POST["username"] . "<br>" ; // or
+    
+
+    if(isset($_POST['login']))
+    {
+        echo $_POST["username"] . "<br>" ; // or
+    }
+
     // echo "{$_POST["password"]} <br> ";
 
-    $item = "pizza";
-    $price = 5.99;
-    $quantity = $_POST["quantity"];
-    $total = null;
+    // $item = "pizza";
+    // $price = 5.99;
+    // $quantity = $_POST["quantity"];
+    // $total = null;
 
-    $total = $quantity * $price;
+    // $total = $quantity * $price;
 
-    echo"You have ordered {$quantity} x {$item} <br>";
-    echo"Your total is : \${$total}";
+    // echo"You have ordered {$quantity} x {$item} <br>";
+    // echo"Your total is : \${$total}";
 ?>
 
