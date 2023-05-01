@@ -18,7 +18,7 @@ $stmt->execute();
 <body>
     <div class="container">
         <h2>Catatan Pribadi</h2>
-        <a href="" class="btn btn-primary">Tambah Catatan</a>
+        <a href="formTambah.php" class="btn btn-primary">Tambah Catatan</a>
         <br><br>
         <div class="row">
             <?php 
@@ -34,6 +34,14 @@ $stmt->execute();
                         <ul>
                             <li><strong>Kategori:</strong> <?=$data['kategori']?></li>
                             <li><strong>Tanggal:</strong> <?=$data['tanggal']?></li>
+                            <li><strong>Catatan: </strong> <?= $data['catatan']; ?></li> <br>
+
+                            <form action="aksi.php" method="post" onsubmit="return confirm('Apakah yakin akan menghapus data?')">
+                                <a href="formEdit.php?id=<?= $data['id'] ?>" class="btn btn-warning btn-sm">Edit Catatan</a>  
+
+                                <input type="hidden" name="id_hapus_catatan" value=" <?= $data['id'] ?> ">
+                                <input type="submit" name="aksi" value="Hapus_Catatan" class="btn btn-danger btn-sm">
+                            </form>
                         </ul>
                     </p>
                 </div>

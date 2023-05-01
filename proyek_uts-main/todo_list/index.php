@@ -18,11 +18,12 @@ $stmt->execute();
 <body>
     <div class="container" style="width: 700px;">
         <h2>To Do yang Belum Dikerjakan</h2>
+        <a href="formTambah.php" class="btn btn-primary">Tambah To Do</a> <br> <br>
         <?php
         while($data = $stmt->fetch()){
         ?>
         <div class="list-group">
-            <a href="#" class="list-group-item flex-column list-group-item-action align-items-start" style="margin-bottom: 10px;">
+            <a href="formEdit.php?id=<?= $data['id'] ?>" class="list-group-item flex-column list-group-item-action align-items-start" style="margin-bottom: 10px;">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1"><?=$data['aktivitas']?></h5>
                     <small class="text-muted"><?=$data['tanggal']?></small>

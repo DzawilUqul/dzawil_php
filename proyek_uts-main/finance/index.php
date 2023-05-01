@@ -18,7 +18,7 @@ $stmt->execute();
 <body>
     <div class="container">
         <h2>Transaksi Keuangan</h2>
-        <a href="" class="btn btn-primary">Tambah Transaksi</a>
+        <a href="formTambah.php" class="btn btn-primary">Tambah Transaksi</a>
         <br><br>
         <table class="table table-bordered">
             <tr>
@@ -27,6 +27,7 @@ $stmt->execute();
                 <th>Kategori</th>
                 <th>Jumlah</th>
                 <th>Keterangan</th>
+                <th>Aksi</th>
             </tr>
             <?php 
             $no = 0;
@@ -37,8 +38,18 @@ $stmt->execute();
                 <td><?=$no;?></td>
                 <td><?=$data['nama']?></td>
                 <td><?=strtoupper($data['kategori'])?></td>
-                <td style="text-align:right;"><?=number_format($data['jumlah'], 0, ',', '.')?></td>
+                <td style="text-align:right;">Rp <?=number_format($data['jumlah'], 0, ',', '.')?></td>
                 <td><?=$data['keterangan']?></td>
+
+                <td>
+                    <form action="aksi.php" method="post">
+                        <a href="formEdit.php?id=<?=$data['id'];?> " class="btn btn-primary">Edit</a> ||
+
+                        <input type="hidden" name="deleteId" value="<?= $data['id'] ?>">
+                        <input type="submit" name="aksi" value="Hapus" class="btn btn-primary">
+                    </form>
+                </td>
+
             </tr>
             <?php } ?>
         </table>
